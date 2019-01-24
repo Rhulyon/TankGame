@@ -2,10 +2,10 @@
 
 #pragma once
 
+#include "Tank.h"
 #include "CoreMinimal.h"
 #include "AIController.h"
 #include "TankAiController.generated.h"
-
 /**
  * 
  */
@@ -13,5 +13,13 @@ UCLASS()
 class TANKGAME_API ATankAiController : public AAIController
 {
 	GENERATED_BODY()
+private:
+	virtual void BeginPlay() override;
+
+	ATank * GetControlledTank() const;
+
+	ATank * GetPlayerTank() const;
+
+private:
 	
 };
