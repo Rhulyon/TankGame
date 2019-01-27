@@ -2,11 +2,11 @@
 
 #pragma once
 #define RAYCAST_LENGHT 1000000.0f;
-#include "Tank.h"
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h"
 
+class ATank;
 /**
  * 
  */
