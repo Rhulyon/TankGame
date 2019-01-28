@@ -17,11 +17,11 @@ class TANKGAME_API UTankBarrel : public UStaticMeshComponent
 public:
 		void Elevate(float RelativeSpeed);
 private:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float MaxDegreesBySecond=10;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float MaxInclination=45;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float MinInclination=0;
 
 };

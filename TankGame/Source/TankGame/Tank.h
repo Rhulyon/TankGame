@@ -44,11 +44,11 @@ protected:
 
 private:
 	UTankBarrel * barrel;
-	UPROPERTY(EditAnywhere,Category= Setup)
+	UPROPERTY(EditDefaultsOnly,Category= Firing)
 	float LaunchSpeed = 10000;
-	UPROPERTY(EditAnywhere, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AProjectile> projectile;
-
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	double ReloadTimeInSeconds = 3;
 
 	double NextFireTime;
