@@ -1,8 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "Tank.h"
 #include "TankBarrel.h"
+#include "TankTurret.h"
 #include "TankAimingComponent.h"
-
+#include "Projectile.h"
 
 
 // Sets default values
@@ -15,7 +16,26 @@ ATank::ATank()
 
 void ATank::SetBarrelReference(UTankBarrel * BarrelToSet)
 {
+	barrel = BarrelToSet;
 	tankAimingComponent->SetBarrelReference(BarrelToSet);
+}
+
+void ATank::SetTurretReference(UTankTurret * TurretToSet)
+{
+	tankAimingComponent->SetTurretReference(TurretToSet);
+}
+
+void ATank::Fire()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Pew Pew"));
+	if (barrel && (FPlatformTime::Seconds()) > NextFireTime) {
+		FActorSpawnParameters actorSpawnParameters;
+		/*actorSpawnParameters.Template =Cast<AActor> (projectile);
+		actorSpawnParameters.Name = FName("Shot");*/
+		auto shot = GetWorld()->SpawnActor<AProjectile>(projectile, barrel->GetSocketTransform(FName("ShotPoint")));
+		shot->LaunchProjectile(LaunchSpeed);
+		NextFireTime = FPlatformTime::Seconds() + ReloadTimeInSeconds;
+	}
 }
 
 // Called when the game starts or when spawned

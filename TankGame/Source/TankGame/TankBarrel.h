@@ -10,7 +10,7 @@
  * 
  */
 
-UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent),hideCategories="Collision")
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class TANKGAME_API UTankBarrel : public UStaticMeshComponent
 {
 	GENERATED_BODY()
@@ -18,9 +18,10 @@ public:
 		void Elevate(float RelativeSpeed);
 private:
 	UPROPERTY(EditAnywhere)
-		float MaxDegreesBySecond=5;
+		float MaxDegreesBySecond=10;
 	UPROPERTY(EditAnywhere)
-		float MaxInclination=40;
+		float MaxInclination=45;
 	UPROPERTY(EditAnywhere)
 		float MinInclination=0;
+
 };

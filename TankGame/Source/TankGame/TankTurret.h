@@ -9,9 +9,15 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent), hideCategories = "Collision")
 class TANKGAME_API UTankTurret : public UStaticMeshComponent
 {
 	GENERATED_BODY()
-	
+
+public:
+	void Rotate(float RelativeSpeed);
+private:
+	UPROPERTY(EditAnywhere)
+		float MaxDegreesBySecond = 25;
+
 };
